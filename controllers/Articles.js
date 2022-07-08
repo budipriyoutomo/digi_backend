@@ -3,7 +3,8 @@ import Articles from "../models/ArticleModel.js";
 export const getArticle = async (req, res) =>{
     try {
         const articles = await Articles.findAll({
-            attributes:['id','title','short_desc','desc','category_id','is_visible','image']
+            where: { 'is_visible': true },
+            attributes:['id','title','short_desc','desc','category_id','is_visible','image'],
         });
         res.json(articles);
     } catch (error) {

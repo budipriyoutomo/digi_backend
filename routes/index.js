@@ -21,12 +21,12 @@ router.get('/token', refreshToken);
 router.delete('/logout', Logout);
 
 //Category
-router.get('/category' , getCategory);
-router.post('/category' , createCategory);
+router.get('/category' ,verifyToken, getCategory);
+router.post('/category' , verifyToken, createCategory);
 
 //Article
 router.get('/article' , getArticle);
-router.get('/article/:id' , getArticlebyID);
-router.post('/article' , createArticle);
+router.get('/article/:id' ,  getArticlebyID);
+router.post('/article' , verifyToken, createArticle);
 
 export default router;
